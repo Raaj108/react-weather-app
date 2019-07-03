@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-export const searchLocation = (loc) => {
-    console.log(loc)
+export const searchLocation = (loc) => {    
     return (dispatch, getState) => {
         const apiKey = "w3TQWTWIt6r6NOmXceDvGH5CvcD2JEfY";
         const url = "http://dataservice.accuweather.com/locations/v1/cities/search?apikey=" + apiKey + "&q=" + loc;
