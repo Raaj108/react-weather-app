@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
-import dailyForecastReducer from './dailyForecastReducer';
+import forecastReducer from './forecastReducer';
 import locationReducer from './locationReducer';
 import twentyfourHoursForecastreducer from './twentyfourHoursForecastreducer';
 
 
 const rootReducer = combineReducers({
-    dailyForecast : dailyForecastReducer,
+    forecast : forecastReducer,
     location: locationReducer,
     twentyfourHoursForecast : twentyfourHoursForecastreducer
 })
