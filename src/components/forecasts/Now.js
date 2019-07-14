@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchCurrentForecast } from '../../redux/actions/forecasts/forecastActions';
+import ForecastCard from './ForecastCard';
+import WeatherConditionsCard from './WeatherConditionsCard';
 
 const Now = (props) => {  
   
@@ -13,25 +15,15 @@ const Now = (props) => {
    
   },[isLocationLoaded])
   
-  const forecastCard = (forecast.isforecastDataLoaded) ? (
-    <div className="row mt-4 mb-4">
-      <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-        <div className="card">           
-          <div className="card-body">
-            <h5 className="card-title">Card title</h5>
-            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>              
-          </div>
-        </div>
-      </div>
-    </div>
-  ) : (
-    <div className="row mt-4 mb-4">Loading...</div>
-  );        
- 
   return (
-    <div>     
-      {forecastCard}
-    </div>
+     (forecast.isforecastDataLoaded) ? (
+      <div className="row mt-4 mb-4">
+        <ForecastCard forecast={forecast.forecastData[0]}></ForecastCard>     
+        <WeatherConditionsCard forecast={forecast.forecastData[0]}></WeatherConditionsCard>     
+      </div>
+    ) : (
+      <div className="mt-4 mb-4">Loading...</div>
+    ) 
   )
 }
 
